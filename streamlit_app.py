@@ -1,10 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.functions import col, when_matched
-
 import requests
-smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
-st.text(smoothiefroot_response)
 
 cnx = st.connection("snowflake")
 
@@ -48,5 +45,7 @@ if ingredient_list:
         st.success('Your Smoothie is ordered, '+name_on_order+'!', icon="✅")
 
 
+smoothiefroot_response = requests.get("https://my.smoothiefroot.com/api/fruit/watermelon")
+st.text(smoothiefroot_response.json())
 
         
