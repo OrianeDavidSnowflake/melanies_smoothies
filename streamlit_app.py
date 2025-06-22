@@ -1,9 +1,10 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
 from snowflake.snowpark.functions import col, when_matched
 
-session = get_active_session() 
+cnx = st.connection("sowflake")
+
+session = cnx.session() 
 
 # Write directly to the app
 st.title(f":cup_with_straw: Customize your Smoothie! :cup_with_straw:")
